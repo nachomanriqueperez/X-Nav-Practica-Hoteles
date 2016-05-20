@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HOTELASA</title>
+    <!--Google+-->
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <!--CSS-->
+    <script type="text/javascript" src="index.css"></script>
+    <!-- Github -->
+    <script type= "text/javascript" src="github.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <!-- Bootstrap -->
+    <link type= "text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link type= "text/css" href="bootstrap/bootstrap.css" rel="stylesheet">
+    <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type= "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type= "text/javascript" src="bootstrap/docs.min.js"></script>
+
+    <!-- jquery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <!-- leaflet -->
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet">
+
+    <!-- jquery-ui -->
+    <script type= "text/javascript" src="jquery-ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script type="text/javascript" src="index.js"></script>
+
+
+  </head>
+  <style>
+
+        h1 { padding: .2em; margin: 0; }
+        .titulo_mis_col {
+            border: 1px solid #aaaaaa;
+            background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+            color: #222222;
+            font-weight: bold;
+        }
+
+        #caja_mis_col, #caja_mis_col2{
+            border: 1px solid #aaaaaa;
+            background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+            color: #222222;
+        }
+        #coleccion {
+            float:left;
+            width: 25%;
+            height: 500px;
+            margin-right: 8em;
+            background-color: white;
+            overflow-y: scroll;
+            overflow-x: visible;
+        }
+        #hotel {
+             width: 25%;
+             height: 500px;
+             float: left;
+             background-color: white;
+             margin-right: 8em;
+        }
+
+        #hoteles_alojados {
+             width: 100%;
+             height: 500px;
+             float: left;
+             margin-top: 4em;
+        }
+
+        #hotel_col{
+            width: 25%;
+            height: 500px;
+            float: left;
+            background-color: white;
+        }
+
+
+        /* style the list to maximize the droppable hitarea */
+        #hotel ol { margin: 0; padding: 1em 0 1em 3em; }
+
+        #map2 {
+            float:left;
+            width:50%;
+            height: 600px;
+            right: 2%;
+        }
+
+        #hoteles{
+            background-image: url("images/fondomap.jpg") ;
+        }
+
+        #pagina_colecciones{
+            margin-top : 8%;
+            margin-left: 4%;
+        }
+
+        body{
+            background-image: url("images/fondomap.jpg") ;
+        }
+
+        .panel{
+            height: 530px;
+            overflow: auto;
+        }
+
+        .panel-heading {
+            padding: 5px 15px;
+        }
+
+        .panel-footer {
+            padding: 1px 15px;
+            color: blue;
+        }
+
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .jumbotron {
+            margin-bottom: 0px;
+            background-image: url("images/bannerhotel.jpg");
+            background-position: 0% 25%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: black 0.3em 0.3em 0.3em;
+        }
+
+        .mapamadrid {
+            margin-bottom: 0px;
+            background-image: url("images/fondocarusel.png");
+            background-position: 0% 25%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: blue;
+            text-shadow: black 0.3em 0.3em 0.3em;
+        }
+
+        .hotel_tab {
+            background-color: red;
+        }
+
+        .buttonmsg{text-decoration:none; text-align:center;
+            padding:11px 21px;
+            border:solid 3px #004F72;
+            -webkit-border-radius:4px;
+            -moz-border-radius:4px;
+            border-radius: 4px;
+            font:18px Arial, Helvetica, sans-serif;
+            font-weight:bold;
+            color:#E5FFFF;
+            background-color:#3BA4C7;
+
+
+            }.buttonmsg:hover{
+            padding:11px 21px;
+            border:solid 3px #004F72;
+            -webkit-border-radius:4px;
+            -moz-border-radius:4px;
+            border-radius: 4px;
+            font:18px Arial, Helvetica, sans-serif;
+            font-weight:bold;
+            color:#E5FFFF;
+            background-color:#3BA4C7;
+
+
+            }
+        /*codigo del boton*/
+
+  </style>
+  <body>
+
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+          </button>
+          <a class="navbar-brand" style="color: Red; ">Hotelesa</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li id = "inicio" class="botones"><a>Inicio</a></li>
+            <li id = "colecciones" class="botones"><a>Colecciones</a></li>
+            <li id = "alojamientos" class="botones"><a>Alojamientos</a></li>
+            <button id = "guardar" class="boton_guardar" style = "margin-top:1.5%;">Guardar Coleccion</button>
+            <button id = "cargar" class="boton_cargar">Cargar Coleccion</button>
+            <button id = "boton_formulario_guardar_user" class = "boton_guardar_user">Guardar usuarios</button>
+            <button id = "boton_formulario_cargar_user" class = "boton_cargar_user">Cargar usuarios</button>
+          </ul>
+          <div id="formulario_guardar">
+              <button id = "boton_formulario_guardar">Guardar en github</button>
+              <input style="color: rgb(13, 133, 165);" id="id_token" placeholder="Token">
+              <input style="color: rgb(13, 133, 165);" id="repo_token" placeholder="Nombre del repositorio">
+              <input style="color: rgb(13, 133, 165);" id="fich_token" placeholder="Nombre del fichero">
+              <input style="color: rgb(13, 133, 165);" id="user_token" placeholder="Nombre de usuario">
+          </div>
+          <div id="formulario_cargar">
+              <button id = "boton_formulario_cargar" style = "margin-top:0.7%;">Cargar de github</button>
+              <input style="color: rgb(13, 133, 165);" id="user_token_2" placeholder="Usuario">
+              <input style="color: rgb(13, 133, 165);" id="url_token_2" placeholder="URL">
+              <input style="color: rgb(13, 133, 165);" id="id_token_2" placeholder="Token">
+          </div>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id = "pagina_principal">
+
+        <div class="jumbotron">
+          <div class="container" >
+            <h1>Bienvenido a Hotelesa, la mejor web de búsqueda de hoteles de Madrid</h1>
+            <p>Aquí podrás encontrar gracias a nuestro buscador los hoteles de Madrid que se relacionen directamente con tu búsqueda, sólo tienes que dar al botón de comenzar a buscar hoteles y elegir un punto del mapa o elegirlo tú mismo. Incluso puedes hacerte una lista de hoteles favoritos para no perderlos de vista.</p>
+          </div>
+        </div>
+
+        <div class="mapamadrid" class="col-xs-12 col-md-6">
+          <div class="container" style= "width:100%, height:100%">
+            <span id = "buttonmsg" style = "float:right; margin-top:75px" class="buttonmsg"/>¡Carga los hoteles de tu zona!</span>
+            <h1>Mapa de hoteles</h1>
+            <p id='map2'></p>
+            <div id="tabs" class="col-xs-12 col-md-6">
+              <ul>
+                <li><a href="#tabs-1">Lista de hoteles</a></li>
+                <li><a href="#tabs-2">Hoteles de coleccion actual</a></li>
+              </ul>
+              <div id="tabs-1" class = "panel">
+                <p id="list"></p>
+              </div>
+              <div id="tabs-2" class = "coleccion_act">
+                <p id="list_col"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="hoteles" class="col-xs-12 col-md-12" hidden="true">
+            <div id="info_hotel" class="col-xs-12 col-md-4"></div>
+            <div id="myCarousel" class="carousel slide col-xs-12 col-md-8" data-ride="carousel">
+              <ol class="carousel-indicators"> </ol>
+              <div class="carousel-inner" role="listbox"></div>
+            </div>
+        </div>
+    </div>
+    <div id = "pagina_colecciones" hidden="true">
+        <div id =hoteles_cargados class="col-xs-12 col-md-12" hidden="true">
+            <h1> No se han encontrado hoteles. Asegúrese de pulsar el botón en la pestaña de Inicio <h1>
+        </div>
+        <div id="coleccion" class="col-xs-12 col-md-3">
+          <h1 class="ui-widget-header">Lista de hoteles</h1>
+          <div id="catalog"></div>
+        </div>
+
+        <div id="hotel" class="overflow col-md-3 col-sm-4">
+          <h1 class="ui-widget-header">Nueva Coleccion</h1>
+          <div class="ui-widget-content" id="guardar_hoteles">
+            <ol>
+              <li class="placeholder">Arrastra los hoteles hasta aqui</li>
+            </ol>
+          </div>
+          <h4 class="ui-widget-header">Introduce un nombre</h4>
+          <div id="collection-list">
+              <div id="formulario">
+                  <button id = "boton_col">Crear</button>
+                  <input style="color: rgb(13, 133, 165);" id="nombre_col" placeholder="Nombre de la coleccion">
+              </div>
+          </div>
+          <h1 class="titulo_mis_col" style = "margin-top: 1em;">Tus colecciones</h1>
+          <div id="caja_mis_col">
+              <h5>Crea una coleccion para tenerla en la lista</h5>
+              <ul></ul>
+          </div>
+        </div>
+
+        <div id="hotel_col" class="overflow col-md-3 col-sm-4">
+            <div id="hoteles_coleccion" class="ui-widget-header">
+              <h1>Hoteles de la coleccion</h1>
+              <div id="caja_mis_col2">
+                  <li>Listado de hoteles de la coleccion actual</li>
+                  <ul></ul>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id = "pagina_alojamientos" hidden="true">
+        <div id="hoteles_alojados" class="col-xs-12 col-md-12" hidden="true">
+            <div id="info_hotel_2" class="col-xs-6 col-md-6"></div>
+            <div id="google" class="col-xs-6 col-md-6" style="background-color:white">
+              <h1 class="ui-widget-header">Lista de usuarios google +</h1>
+              <h4 class="ui-widget-header">Introduce un nombre</h4>
+              <div id="coleccion_google">
+                  <div id="formulario_google">
+                      <button id = "boton_google">Agregar</button>
+                      <input style="color: rgb(13, 133, 165);" id="nombre_google" placeholder="Nombre google+">
+                  </div>
+                  <h4 class="ui-widget-header">Lista de usuarios</h4>
+                  <div id="user_google"></div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

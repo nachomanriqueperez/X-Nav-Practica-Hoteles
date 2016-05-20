@@ -1,0 +1,142 @@
+h1 { padding: .2em; margin: 0; }
+.titulo_mis_col {
+    border: 1px solid #aaaaaa;
+    background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+    color: #222222;
+    font-weight: bold;
+}
+
+#caja_mis_col, #caja_mis_col2{
+    border: 1px solid #aaaaaa;
+    background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+}
+#coleccion {
+    float:left;
+    width: 25%;
+    height: 500px;
+    margin-right: 8em;
+    background-color: white;
+    overflow-y: scroll;
+    overflow-x: visible;
+}
+#hotel {
+     width: 25%;
+     height: 500px;
+     float: left;
+     background-color: white;
+     margin-right: 8em;
+}
+
+#hoteles_alojados {
+     width: 100%;
+     height: 500px;
+     float: left;
+     margin-top: 4em;
+}
+
+#hotel_col{
+    width: 25%;
+    height: 500px;
+    float: left;
+    background-color: white;
+}
+
+
+/* style the list to maximize the droppable hitarea */
+#hotel ol { margin: 0; padding: 1em 0 1em 3em; }
+
+#map2 {
+    float:left;
+    width:50%;
+    height: 600px;
+    right: 2%;
+}
+
+#hoteles{
+    background-image: url("images/fondomap.jpg") ;
+}
+
+#pagina_colecciones{
+    margin-top : 8%;
+    margin-left: 4%;
+}
+
+body{
+    background-image: url("images/fondomap.jpg") ;
+}
+
+.panel{
+    height: 530px;
+    overflow: auto;
+}
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+.panel-footer {
+    padding: 1px 15px;
+    color: blue;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url("images/bannerhotel.jpg");
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.mapamadrid {
+    margin-bottom: 0px;
+    background-image: url("images/fondocarusel.png");
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: blue;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.hotel_tab {
+    background-color: red;
+}
+
+.buttonmsg{text-decoration:none; text-align:center;
+    padding:11px 21px;
+    border:solid 3px #004F72;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius: 4px;
+    font:18px Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color:#E5FFFF;
+    background-color:#3BA4C7;
+
+
+    }.buttonmsg:hover{
+    padding:11px 21px;
+    border:solid 3px #004F72;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius: 4px;
+    font:18px Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color:#E5FFFF;
+    background-color:#3BA4C7;
+
+
+    }
+/*codigo del boton*/
