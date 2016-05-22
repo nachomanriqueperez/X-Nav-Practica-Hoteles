@@ -17,8 +17,8 @@ h1 { padding: .2em; margin: 0; }
     height: 500px;
     margin-right: 8em;
     background-color: white;
-    overflow-y: scroll;
-    overflow-x: visible;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 #hotel {
      width: 25%;

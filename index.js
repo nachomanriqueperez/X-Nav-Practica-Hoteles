@@ -95,7 +95,7 @@ if (Modernizr.geolocation) {
         list2 = list2 + '</ul></div>';
         $('#list').html(list);
         $('#catalog').html(list2);
-        $("#catalog *").draggable({stack: "#hotel", revert: true });
+        $("#catalog *").draggable({stack: "#hotel", revert: true,scroll:false });
         $('#pagina_principal li').click(show_accomodation);
         $('#map2').on('click', '#boton_mapa', function() {
             marc_hotel = true;
@@ -251,10 +251,11 @@ $(document).ready(function() {
                     $("#hoteles_coleccion").html("<h1>Hoteles de la coleccion</h1><div id='caja_mis_col2'><li>Listado de hoteles de la coleccion actual</li><ul></ul></div>");
 
                     colecciones = {};
-
+                    
                     $.each(texto,function(key,value){
                         colecciones[key] = value;
-                        $("#caja_mis_col ul").html("<li>" + key + "</li>");
+
+                        $("#caja_mis_col ul").html($("#caja_mis_col ul").html() + "<li>" + key + "</li>");
 
                     })
 
