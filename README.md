@@ -16,7 +16,15 @@ nachomanriqueperez
 -Resumen de las peculiaridades que se quieran mencionar sobre lo implementado
 en la parte obligatoria.
 
+-Lista de funcionalidades opcionales que se hayan implementado, y breve
+descripci´on de cada una.
 
--URL del v´ıdeo demostraci´on de la funcionalidad basica
+Manifest para que se descarguen los archivos necesarios para cargar la pagina sin conexion.
 
+-URL del v´ıdeo demostraci´on de la funcionalidad basica:
+
+https://www.youtube.com/watch?v=j184DwtBff4&feature=youtu.be
+
+-URL del v´ıdeo demostraci´on de la funcionalidad optativa, si se ha realizado
+funcionalidad optativa:
 
